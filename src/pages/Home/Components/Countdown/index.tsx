@@ -1,26 +1,10 @@
-import { CyclesContext } from '../..'
-import { CountdownContainer } from './styles'
-import { useState, useEffect, useContext } from 'react'
+import { CyclesContext } from '../../../../contexts/CyclesContext'
+import { CountdownContainer, Separator } from './styles'
+import { useContext } from 'react'
 
 export function Countdown() {
-  const { activeCycle } = useContext(CyclesContext)
-  const [amountSecondsPassed, setAmountSecondsPassed] = useState(0)
-  const totalSeconds = activeCycle ? activeCycle.minutesAmount * 60 : 0
-  useEffect(() => {
-    let interval: number
-    if (activeCycle) {
-      interval = setInterval(() => {
-        setAmountSecondsPassed(
-          (new Date().getTime() -
-            new Date(Number.parseInt(activeCycle.id)).getTime()) /
-            1000,
-        )
-      }, 250)
-      return () => {
-        clearInterval(interval)
-      }
-    }
-  }, [activeCycle])
+  const { minutesAmount, secondsAmount } = useContext(CyclesContext)
+
   return (
     <CountdownContainer>
       <span>{minutesAmount[0]}</span>

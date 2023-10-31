@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import { Trash } from 'phosphor-react'
 export const HistoryContainer = styled.main`
   flex: 1;
   padding: 3.5rem;
@@ -14,6 +14,13 @@ export const HistoryContainer = styled.main`
     width: 100%;
     border-collapse: collapse;
     min-width: 600px;
+    -webkit-touch-callout: default; /* iOS Safari */
+    -webkit-user-select: text; /* Safari */
+    -khtml-user-select: default; /* Konqueror HTML */
+    -moz-user-select: text; /* Old versions of Firefox */
+    -ms-user-select: text; /* Internet Explorer/Edge */
+    user-select: text; /* Non-prefixed version, currently
+                            supported by Chrome, Edge, Opera and Firefox */
     th {
       background-color: ${(props) => props.theme['gray-600']};
       padding: 1rem;
@@ -46,12 +53,45 @@ export const HistoryContainer = styled.main`
       }
     }
   }
+
+  .disabled-trash {
+    scale: 1 !important;
+    transition-property: none;
+    transition-duration: none;
+    &:hover {
+      cursor: auto !important;
+      border: 0 !important;
+      scale: 1 !important;
+    }
+  }
 `
 
 export const HistoryList = styled.div`
   flex: 1;
   overflow: auto;
   margin-top: 2rem;
+`
+export const HeaderTrash = styled(Trash)`
+  scale: 1;
+  transition-property: all;
+  transition-duration: 150ms;
+  &:hover {
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 25%;
+    scale: 1.5;
+  }
+`
+export const RowTrash = styled(Trash)`
+  scale: 1;
+  transition-property: all;
+  transition-duration: 150ms;
+  &:hover {
+    cursor: pointer;
+    border: 1px solid ${(props) => props.theme['gray-200']};
+    border-radius: 25%;
+    scale: 1.5;
+  }
 `
 
 const STATUS_COLORS = {
