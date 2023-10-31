@@ -77,7 +77,7 @@ export const HeaderTrash = styled(Trash)`
   transition-duration: 150ms;
   &:hover {
     cursor: pointer;
-    border: 1px solid white;
+
     border-radius: 25%;
     scale: 1.5;
   }
@@ -88,7 +88,7 @@ export const RowTrash = styled(Trash)`
   transition-duration: 150ms;
   &:hover {
     cursor: pointer;
-    border: 1px solid ${(props) => props.theme['gray-200']};
+
     border-radius: 25%;
     scale: 1.5;
   }
